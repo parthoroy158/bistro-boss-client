@@ -7,7 +7,7 @@ const MenuItems = ({ item }) => {
             <div className='flex gap-10'>
                 <h1>
                     <img
-                        style={ {borderRadius:'0 250px 200px 250px'}}
+                        style={{ borderRadius: '0 250px 200px 250px' }}
                         className='w-[120px] '
                         src={image} alt="" />
                 </h1>
@@ -19,6 +19,7 @@ const MenuItems = ({ item }) => {
                     <h3 className='text-orange-500'>${price}</h3>
                 </div>
             </div>
+           
         </div>
     );
 };
