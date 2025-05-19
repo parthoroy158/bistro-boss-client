@@ -47,7 +47,7 @@ const FromOurMenu = () => {
                             quod nobis quas quasi. Eaque repellat recusandae ad laudantium tempore consequatur consequuntur omnis
                             ullam maxime tenetur.
                         </p>
-                        <button className="btn btn-outline border-0  border-b-3 border-black">
+                        <button className="btn btn-outline border-0  border-b-3 border-black uppercase">
                             Read More
                         </button>
                     </div>

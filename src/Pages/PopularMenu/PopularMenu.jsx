@@ -31,7 +31,7 @@ const PopularMenu = () => {
                 }
             </div>
             <div className="text-center mt-10">
-                <button className='text-center btn btn-ghost border-b-3 border-b-black mr-20 w-[236px] h-[36px]'>View All</button>
+                <button className='text-center btn btn-ghost border-b-3 border-b-black mr-20 w-[236px] h-[36px]text-[20px] uppercase'>View Full  Menu</button>
             </div>
             <div className="h-[250px] text-white bg-black mt-15">
                 <h2 className="text-center p-20 text-[50px]">Call Us: +88 0192345678910</h2>

@@ -5,7 +5,6 @@ const Navbar = () => {
 
     const navOptions = <>
         <li><NavLink to='/'>Home</NavLink></li>
-        <li><a>Item 3</a></li>
     </>
     return (
         <div className="navbar fixed bg-black/50 z-10 max-w-screen-xl text-white">

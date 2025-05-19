@@ -18,7 +18,7 @@ const ChefRecommends = ({ item }) => {
 
                 <div className="card-actions mt-2">
                     <button
-                        className="btn bg-[#BB8506] normal-case tracking-wider text-white hover:bg-black"
+                        className="btn bg-[#BB8506] normal-case tracking-wider text-white hover:bg-black uppercase"
                     >
                         Add to Cart
                     </button>
