@@ -6,7 +6,7 @@ import SectionTitle from '../../Components/SectionTitle.jsx/SectionTitle';
 const FromOurMenu = () => {
     return (
         <section
-            className="relative flex items-center justify-center h-[848px] bg-center bg-cover mt-10 mb-10"
+            className="relative flex items-center justify-center h-[848px] bg-center bg-cover mt-10 mb-10 bg-fixed"
             style={{
                 backgroundImage:
                     `url(${back})`,
@@ -47,7 +47,7 @@ const FromOurMenu = () => {
                             quod nobis quas quasi. Eaque repellat recusandae ad laudantium tempore consequatur consequuntur omnis
                             ullam maxime tenetur.
                         </p>
-                        <button className="btn btn-outline  border-b-3 border-black">
+                        <button className="btn btn-outline border-0  border-b-3 border-black">
                             Read More
                         </button>
                     </div>
