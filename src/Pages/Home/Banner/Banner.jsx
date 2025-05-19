@@ -16,7 +16,7 @@ const Banner = () => {
                 </div>
                 <div>
                     <img src={image2} />
-                   
+
                 </div>
                 <div>
                     <img src={image3} />
