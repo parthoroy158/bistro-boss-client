@@ -9,7 +9,7 @@ import MenuItems from '../../Shared/MenuItems/MenuItems';
 import SectionTitle from '../../../Components/SectionTitle.jsx/SectionTitle';
 import MenuCategory from '../MenuCategory/MenuCategory';
 const Menu = () => {
-    const { menu } = MenuShare()
+    const [ menu ] = MenuShare()
     const pizza = menu.filter(item => item.category === "pizza")
     const popular = menu.filter(item => item.category === "popular")
     const dessert = menu.filter(item => item.category === "dessert")

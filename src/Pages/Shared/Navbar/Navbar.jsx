@@ -3,13 +3,16 @@ import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
 
-    const navOptions = <>
-        <li><NavLink to='/'>Home</NavLink></li>
-        <li><NavLink to='/contactUs'>CONTACT US</NavLink></li>
-        <li><NavLink to='/dashBoard'>DASHBOARD</NavLink></li>
-        <li><NavLink to='/ourMenu'>OUR MENU</NavLink></li>
-        <li><NavLink to='/ourShope'>OUR SHOP</NavLink></li>
-    </>
+    const navOptions =
+        <>
+            <div className='md:flex  justify-end'>
+                <li><NavLink to='/'>Home</NavLink></li>
+                <li><NavLink to='/contactUs'>CONTACT US</NavLink></li>
+                <li><NavLink to='/dashBoard'>DASHBOARD</NavLink></li>
+                <li><NavLink to='/ourMenu'>OUR MENU</NavLink></li>
+                <li><NavLink to='/ourShope'>OUR SHOP</NavLink></li>
+            </div>
+        </>
     return (
         <div className="navbar fixed bg-black/50 z-10 max-w-screen-xl text-white">
             <div className="navbar-start">

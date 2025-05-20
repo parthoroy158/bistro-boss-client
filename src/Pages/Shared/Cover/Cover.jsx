@@ -8,9 +8,7 @@ const Cover = ({ img, title, details }) => {
             bgImageAlt="the dog"
             strength={-200}
         >
-            <div
-                className="hero  h-[700px] mb-5"
-            >
+            <div className="hero  h-[700px]">
                 <div className="hero-overlay"></div>
                 <div className="hero-content text-neutral-content text-center">
                     <div className="max-w-md">
