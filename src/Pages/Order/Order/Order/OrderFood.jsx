@@ -5,13 +5,13 @@ import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import MenuShare from '../../../Shared/MenuShare.jsx/MenuShare';
 import ChefRecommends from '../../../Home/Chef Recommends/ChefRecommends';
-import CardFood from '../../../../Components/CardFood/CardFood';
+import CardShare from '../../../Shared/CardShare/CardShare';
 
 const OrderFood = () => {
     const [tabIndex, setTabIndex] = useState(0)
     const [menu] = MenuShare()
     const pizza = menu.filter(item => item.category === "pizza")
-    const popular = menu.filter(item => item.category === "popular")
+    const drinks = menu.filter(item => item.category === "drinks")
     const dessert = menu.filter(item => item.category === "dessert")
     const salad = menu.filter(item => item.category === "salad")
 
@@ -27,13 +27,20 @@ const OrderFood = () => {
                     <Tab>Drinks</Tab>
                 </TabList>
                 <TabPanel >
-                    <div className='grid md:grid-cols-3 gap-5'>
-                        {
-                            salad.map(item => <CardFood item={item}></CardFood>)
-                        }
-                    </div>
+                    <CardShare item={pizza}></CardShare>
                 </TabPanel>
-                <TabPanel></TabPanel>
+                <TabPanel>
+                    <CardShare item={drinks}></CardShare>
+                </TabPanel>
+                <TabPanel>
+                    <CardShare item={dessert}></CardShare>
+                </TabPanel>
+                <TabPanel>
+                    <CardShare item={salad}></CardShare>
+                </TabPanel>
+                <TabPanel>
+                    <CardShare item={pizza}></CardShare>
+                </TabPanel>
             </Tabs>
         </div>
     );
