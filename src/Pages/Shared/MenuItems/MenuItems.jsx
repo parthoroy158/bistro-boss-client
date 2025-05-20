@@ -8,7 +8,7 @@ const MenuItems = ({ item }) => {
                 <h1>
                     <img
                         style={{ borderRadius: '0 250px 200px 250px' }}
-                        className='w-[120px] '
+                        className='w-[120px] border border-b-blue-500'
                         src={image} alt="" />
                 </h1>
                 <div>
