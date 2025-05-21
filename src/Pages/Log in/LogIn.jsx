@@ -1,4 +1,5 @@
-
+import loginBg from '../../assets/others/authentication.png'
+import sideImg from '../../assets/others/authentication1.png'
 import { useEffect, useRef, useState } from 'react';
 import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
 
@@ -27,17 +28,15 @@ const LogIn = () => {
     }
 
     return (
-        <div className="hero bg-base-200 min-h-screen">
-            <div className="hero-content flex-col lg:flex-row-reverse">
+        <div className="hero bg-base-200 min-h-screen"
+            style={{ backgroundImage: `url(${loginBg})` }}>
+            <div className="hero-content flex-col lg:flex-row-reverse gap-15 ">
                 <div className="text-center lg:text-left">
-                    <h1 className="text-5xl font-bold">Login now!</h1>
-                    <p className="py-6">
-                        Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-                        quasi. In deleniti eaque aut repudiandae et a id nisi.
-                    </p>
+                    <img className='w-120 mt-8' src={sideImg} alt="" />
                 </div>
                 <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
                     <form className="card-body" onSubmit={handleSubmit}>
+                        <h1 className="text-4xl font-bold text-center" >Login now!</h1>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
