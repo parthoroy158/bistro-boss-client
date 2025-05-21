@@ -19,7 +19,6 @@ const MenuItems = ({ item }) => {
                     <h3 className='text-orange-500'>${price}</h3>
                 </div>
             </div>
-           
         </div>
     );
 };

@@ -3,10 +3,10 @@ import React from 'react';
 const CardFood = ({ item }) => {
     const { image, name, recipe, price } = item
     return (
-        <div className=" relative card w-mx bg-base-100 shadow-xl">
+        <div className=" relative card w-75  bg-base-100 shadow-xl">
             <figure className="h-40 overflow-hidden">
                 {/* Using object‑cover ensures we keep aspect ratio and fill the frame */}
-                <img src={image} className="object-cover w-full h-full object-cover" />
+                <img src={image} className="object-cover w-full h-full object-cover p-2" />
             </figure>
 
             <div className=" card-body items-center text-center gap-3 p-4">

@@ -13,7 +13,11 @@
     "@smastrom/react-rating": "^1.5.0",
     "@tailwindcss/vite": "^4.1.7",
     "async": "^3.2.6",
+    "cord": "^1.0.1",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
     "helmet": "^8.1.0",
+    "mongodb": "^6.16.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-helmet": "^6.1.0",
@@ -37,5 +41,18 @@
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^16.0.0",
     "vite": "^6.3.5"
-  }
+  },
+  "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
+  "main": "eslint.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/parthoroy158/bistro-boss-client.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/parthoroy158/bistro-boss-client/issues"
+  },
+  "homepage": "https://github.com/parthoroy158/bistro-boss-client#readme"
 }
