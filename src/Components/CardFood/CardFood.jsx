@@ -6,7 +6,7 @@ const CardFood = ({ item }) => {
         <div className=" relative card w-75  bg-base-100 shadow-xl">
             <figure className="h-40 overflow-hidden">
                 {/* Using object‑cover ensures we keep aspect ratio and fill the frame */}
-                <img src={image} className="object-cover w-full h-full object-cover p-2" />
+                <img src={image} className="object-cover w-full h-full  p-2" />
             </figure>
 
             <div className=" card-body items-center text-center gap-3 p-4">

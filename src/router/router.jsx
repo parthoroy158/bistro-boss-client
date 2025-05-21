@@ -6,6 +6,7 @@ import MainLayOut from "../layout/MainLayOut";
 import Home from "../Pages/Home/Home";
 import Menu from "../Pages/Menu/Menu/Menu";
 import OrderFood from "../Pages/Order/Order/Order/OrderFood";
+import LogIn from "../Pages/Log in/LogIn";
 
 const router = createBrowserRouter([
     {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
             {
                 path: '/ourShope/:category',
                 element: <OrderFood></OrderFood>
+            },
+            {
+                path:'/logIn',
+                element:<LogIn></LogIn>
             }
         ]
     },
