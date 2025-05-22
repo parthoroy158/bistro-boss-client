@@ -1,19 +1,44 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import useAuth from '../../../Hooks/useAuth';
+
 
 const Navbar = () => {
+    const { userSignOut, user } = useAuth()
 
     const navOptions =
         <>
-            <div className='md:flex  justify-end'>
+            <div className='md:flex items-center'>
                 <li><NavLink to='/'>Home</NavLink></li>
                 <li><NavLink to='/contactUs'>CONTACT US</NavLink></li>
                 <li><NavLink to='/dashBoard'>DASHBOARD</NavLink></li>
                 <li><NavLink to='/ourMenu'>OUR MENU</NavLink></li>
                 <li><NavLink to='/ourShope/Salad'>OUR SHOP</NavLink></li>
-                <li><NavLink to='/logIn'>LOGIN</NavLink></li>
+
+                {
+                    user ?
+                        <>
+                            <button className='btn btn-ghost'>{user.email}</button>
+                        </> :
+                        <>
+
+                            <li><NavLink to='/signUp'>SIGN UP</NavLink></li>
+                            <li><NavLink to='/logIn'>LOG IN</NavLink></li>
+                        </>
+                }
             </div>
         </>
+
+
+    const handleLogOut = () => {
+        userSignOut()
+            .then(result => {
+                console.log("Sign Out Successfully")
+            })
+            .catch(error => {
+                console.log("error", error)
+            })
+    }
     return (
         <div className="navbar fixed bg-black/50 z-10 max-w-screen-xl text-white">
             <div className="navbar-start">
@@ -46,7 +71,9 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn bg-base-500 ">Button</a>
+                {
+                    user ? <button className='btn  bg-base-500' onClick={handleLogOut}>Log Out</button> : <button className='btn bg-base-300'>Button</button>
+                }
             </div>
         </div>
     );
