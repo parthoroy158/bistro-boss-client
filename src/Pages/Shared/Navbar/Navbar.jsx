@@ -1,24 +1,35 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth';
+import { FaShoppingCart } from "react-icons/fa";
+import useCart from '../../../Hooks/useCart';
 
 
 const Navbar = () => {
     const { userSignOut, user } = useAuth()
+    const [cart] = useCart()
 
     const navOptions =
         <>
             <div className='md:flex items-center'>
                 <li><NavLink to='/'>Home</NavLink></li>
-                <li><NavLink to='/contactUs'>CONTACT US</NavLink></li>
-                <li><NavLink to='/dashBoard'>DASHBOARD</NavLink></li>
+                <li><NavLink to='/'>CONTACT US</NavLink></li>
+                <li><NavLink to='/'>DASHBOARD</NavLink></li>
                 <li><NavLink to='/ourMenu'>OUR MENU</NavLink></li>
+                <li><NavLink to='/secret'>SECRET</NavLink></li>
                 <li><NavLink to='/ourShope/Salad'>OUR SHOP</NavLink></li>
+                <li>
+                    <button className="btn btn-outline">
+                        <FaShoppingCart /> <span className="badge badge-sm badge-secondary  ">+{cart.length}</span>
+                    </button>
+                </li>
 
                 {
                     user ?
                         <>
-                            <button className='btn btn-ghost'>{user.email}</button>
+                            <button className='btn btn-ghost uppercase bg-transparent text-lime-400 ml-4'>{user.displayName
+                            }</button>
+                            <img className='w-8 rounded-xl' src={user.photoURL} alt="" />
                         </> :
                         <>
 

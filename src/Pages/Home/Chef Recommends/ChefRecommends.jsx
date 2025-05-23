@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const ChefRecommends = ({ item }) => {
     const { image, name, recipe, price } = item
@@ -17,14 +18,16 @@ const ChefRecommends = ({ item }) => {
                 </p>
 
                 <div className="card-actions mt-2">
+                    <Link to='/ourMenu'>
                     <button
                         className="btn bg-[#BB8506] normal-case tracking-wider text-white hover:bg-black uppercase "
                     >
                         Add to Cart
                     </button>
-                </div>
+                </Link>
             </div>
         </div>
+        </div >
     );
 };
 

@@ -12,7 +12,9 @@
   "dependencies": {
     "@smastrom/react-rating": "^1.5.0",
     "@tailwindcss/vite": "^4.1.7",
+    "@tanstack/react-query": "^5.76.2",
     "async": "^3.2.6",
+    "axios": "^1.9.0",
     "cord": "^1.0.1",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",

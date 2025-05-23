@@ -3,7 +3,7 @@ import loginBg from '../../assets/others/authentication.png'
 import sideImg from '../../assets/others/authentication1.png'
 import { useEffect, useState } from 'react';
 import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
 import Swal from 'sweetalert2';
 import { Eye, EyeOff } from 'lucide-react';
@@ -12,6 +12,9 @@ const LogIn = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [disabled, setDisabled] = useState(true)
     const { userSignIn } = useAuth()
+    const navigate = useNavigate()
+    const location = useLocation()
+    const from = location?.state?.from?.pathname || "/"
 
     useEffect(() => {
         loadCaptchaEnginge(6);
@@ -32,6 +35,7 @@ const LogIn = () => {
                     icon: "success",
                     draggable: true
                 });
+                navigate(from, { replace: true })
             })
             .catch(error => {
                 console.lgo("Error", error)
@@ -70,7 +74,7 @@ const LogIn = () => {
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="password" placeholder="password" name='password' className="input input-bordered w-full" required />
+                            <input type={showPassword ? 'text' : 'password'} placeholder="password" name='password' className="input input-bordered w-full" required />
                             <span
                                 onClick={() => setShowPassword(!showPassword)}
                                 className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer"
@@ -85,7 +89,7 @@ const LogIn = () => {
                             <label className="label">
                                 < LoadCanvasTemplate />
                             </label>
-                            <input type="text" onBlur={handleValidateCaptcha}  placeholder="Type the text captcha" name='captcha' className="input input-bordered w-full" required />
+                            <input type="text" onBlur={handleValidateCaptcha} placeholder="Type the text captcha" name='captcha' className="input input-bordered w-full" required />
                         </div>
                         <div className="form-control mt-6">
                             <button disabled={disabled} className="btn btn-primary w-full">Login</button>

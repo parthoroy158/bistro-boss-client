@@ -10,9 +10,10 @@ import Swal from 'sweetalert2';
 
 const SignUp = () => {
     const [showPassword, setShowPassword] = useState(false);
-    const { createNewUser, } = useAuth()
+    const { createNewUser, userUpdateProfile } = useAuth()
     const {
         register,
+        reset,
         handleSubmit,
         watch,
         formState: { errors },
@@ -24,18 +25,25 @@ const SignUp = () => {
         createNewUser(data.email, data.password)
             .then(result => {
                 console.log(result.user)
-                Swal.fire({
-                    title: "Successfully Sign Up!",
-                    icon: "success",
-                    draggable: true
-                });
+                userUpdateProfile(data.name, data.photoURL)
+                    .then(result => {
+                        console.log(result)
+                        Swal.fire({
+                            title: "Successfully Sign Up!",
+                            icon: "success",
+                            draggable: true
+                        });
+                        reset()
+                    })
+                    .catch(error => {
+                        console.log(error, 'error')
+                    })
             })
             .catch(error => {
                 console.log(error, "error")
             })
-
     }
-    console.log(watch("example"))
+    // console.log(watch("example"))
 
 
     return (
@@ -56,8 +64,15 @@ const SignUp = () => {
                             <label className="label">
                                 <span className="label-text">Name</span>
                             </label>
-                            <input type="text" placeholder="Name" name='name' {...register("name", { required: true })} className="input input-bordered w-full " />
+                            <input type="text" placeholder="Name"{...register("name", { required: true })} className="input input-bordered w-full " />
                             {errors.name && <span className='text-red-600'>This field is required</span>}
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Photo URL</span>
+                            </label>
+                            <input type="url" placeholder="Photo URL"{...register("photoURL", { required: true })} className="input input-bordered w-full " />
+                            {errors.photoURL && <span className='text-red-600'>This field is required</span>}
                         </div>
                         <div className="form-control">
                             <label className="label">
