@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth';
 import { FaShoppingCart } from "react-icons/fa";
 import useCart from '../../../Hooks/useCart';
@@ -19,9 +19,11 @@ const Navbar = () => {
                 <li><NavLink to='/secret'>SECRET</NavLink></li>
                 <li><NavLink to='/ourShope/Salad'>OUR SHOP</NavLink></li>
                 <li>
-                    <button className="btn btn-outline">
-                        <FaShoppingCart /> <span className="badge badge-sm badge-secondary  ">+{cart.length}</span>
-                    </button>
+                    <Link to='/dashboard/cart'>
+                        <button className="btn btn-outline">
+                            <FaShoppingCart /> <span className="badge badge-sm badge-secondary  ">+{cart.length}</span>
+                        </button>
+                    </Link>
                 </li>
 
                 {
