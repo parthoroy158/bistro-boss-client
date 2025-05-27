@@ -13,6 +13,7 @@ import PrivateRoute from "./PrivateRoute";
 import Dashboard from "../layout/Dashboard/Dashboard";
 import Cart from "../Pages/Dashboard/Cart/Cart";
 import UserHome from "../Pages/Dashboard/UserHome/UserHome";
+import AllUsers from "../layout/Dashboard/All Users/AllUsers";
 
 
 const router = createBrowserRouter([
@@ -49,15 +50,20 @@ const router = createBrowserRouter([
     },
     {
         path: '/dashboard',
-        element: <Dashboard></Dashboard>,
+        element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
         children: [
             {
                 path: '/dashboard/cart',
                 element: <Cart></Cart>
             },
             {
-                path:'/dashboard/home',
-                element:<UserHome></UserHome>
+                path: '/dashboard/home',
+                element: <UserHome></UserHome>
+            },
+            // admin routs
+            {
+                path:'/dashboard/allUsers',
+                element:<AllUsers></AllUsers>
             }
         ]
     }

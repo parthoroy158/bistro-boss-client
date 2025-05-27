@@ -1,13 +1,16 @@
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import AuthContext from "../AuthContext/AuthContext";
 import auth from "../../../firebase/firebase.init";
 import { useEffect, useState } from "react";
+import UseAxiosPublic from "../AxiosPublic/UseAxiosPublic";
 
 
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState()
     const [loading, setLoading] = useState(true)
+    const provider = new GoogleAuthProvider()
+    const axiosPublic = UseAxiosPublic()
 
     const createNewUser = (email, password) => {
         setLoading(false)
@@ -30,11 +33,31 @@ const AuthProvider = ({ children }) => {
         })
     }
 
+    const signInWithGoogle = () => {
+        setLoading(false)
+        return signInWithPopup(auth, provider)
+    }
+
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser)
+            if (currentUser) {
+                const userInfo = {
+                    email: currentUser.email
+                }
+                axiosPublic.post('/jwt', userInfo)
+                    .then(res => {
+                        console.log(res.data.token)
+                        if (res.data.token) {
+                            localStorage.setItem('Access Token', res.data.token)
+                        }
+                    })
+            }
+            else {
+                localStorage.removeItem('Access Token')
+            }
             setLoading(false)
-            console.log(currentUser)
+            console.log("This is the current user:", currentUser)
         })
         return () => {
             unSubscribe();
@@ -44,6 +67,7 @@ const AuthProvider = ({ children }) => {
 
 
     const userInfo = {
+        signInWithGoogle,
         createNewUser,
         user,
         loading,

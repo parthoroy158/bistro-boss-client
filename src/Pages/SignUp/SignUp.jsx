@@ -6,11 +6,16 @@ import { Eye, EyeOff } from 'lucide-react';
 import { useState } from 'react';
 import useAuth from '../../Hooks/useAuth';
 import Swal from 'sweetalert2';
+import UseAxiosPublic from '../Shared/AxiosPublic/UseAxiosPublic';
+import SignInWithGoogle from '../../Components/signInWithGoole/SignInWithGoogle';
+import { useNavigate } from 'react-router-dom';
 
 
 const SignUp = () => {
+    const navigate = useNavigate()
     const [showPassword, setShowPassword] = useState(false);
     const { createNewUser, userUpdateProfile } = useAuth()
+    const axiosPublic = UseAxiosPublic()
     const {
         register,
         reset,
@@ -27,13 +32,24 @@ const SignUp = () => {
                 console.log(result.user)
                 userUpdateProfile(data.name, data.photoURL)
                     .then(result => {
-                        console.log(result)
-                        Swal.fire({
-                            title: "Successfully Sign Up!",
-                            icon: "success",
-                            draggable: true
-                        });
-                        reset()
+                        const userInfo = {
+                            name: data.name,
+                            email: data.email
+                        }
+
+                        axiosPublic.post('/users', userInfo)
+                            .then(res => {
+                                console.log(res.data)
+                                if (res.data.insertedId) {
+                                    Swal.fire({
+                                        title: "Successfully Sign Up!",
+                                        icon: "success",
+                                        draggable: true
+                                    });
+                                    reset()
+                                    navigate('/')
+                                }
+                            })
                     })
                     .catch(error => {
                         console.log(error, 'error')
@@ -118,6 +134,10 @@ const SignUp = () => {
                             <button className="btn btn-primary w-full"><input type="submit" value="Sign Up" /></button>
                         </div>
                     </form>
+                    <div className='divider'>OR</div>
+                    <div className='text-center mb-5 p-5'>
+                        <SignInWithGoogle ></SignInWithGoogle>
+                    </div>
                 </div>
             </div>
         </div>

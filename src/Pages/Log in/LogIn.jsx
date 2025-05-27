@@ -7,6 +7,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
 import Swal from 'sweetalert2';
 import { Eye, EyeOff } from 'lucide-react';
+import SignInWithGoogle from '../../Components/signInWithGoole/SignInWithGoogle';
 
 const LogIn = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -96,6 +97,10 @@ const LogIn = () => {
                             <p className='mt-1'>New Here <span className='font-bold text-amber-800'><Link to='/signUp'>Click Here</Link></span></p>
                         </div>
                     </form>
+                    <div className='divider'>OR</div>
+                    <div className='text-center mb-5 p-5'>
+                        <SignInWithGoogle ></SignInWithGoogle>
+                    </div>
                 </div>
             </div>
         </div>

@@ -11,10 +11,10 @@ const Navbar = () => {
 
     const navOptions =
         <>
-            <div className='md:flex items-center'>
+            <div className='md:flex items-center '>
                 <li><NavLink to='/'>Home</NavLink></li>
-                <li><NavLink to='/'>CONTACT US</NavLink></li>
-                <li><NavLink to='/'>DASHBOARD</NavLink></li>
+                {/* <li><NavLink to='/'>CONTACT US</NavLink></li> */}
+                {/* <li><NavLink to='/'>DASHBOARD</NavLink></li> */}
                 <li><NavLink to='/ourMenu'>OUR MENU</NavLink></li>
                 <li><NavLink to='/secret'>SECRET</NavLink></li>
                 <li><NavLink to='/ourShope/Salad'>OUR SHOP</NavLink></li>
