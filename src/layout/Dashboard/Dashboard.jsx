@@ -2,12 +2,14 @@ import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import { FaBook, FaCalendar, FaEnvelope, FaHome, FaList, FaRebel, FaShoppingCart, FaStar, FaUser, FaUtensils } from "react-icons/fa";
 import useCart from '../../Hooks/useCart';
+import useAdmin from '../../Hooks/useAdmin';
 
 
 const Dashboard = () => {
     const [cart] = useCart()
     // todo:get 
-    const isAdmin = true;
+    const [isAdmin] = useAdmin()
+    // const isAdmin = true;
     return (
         <div className='flex max-w-7xl mx-auto '>
             <div className='w-64 min-h-screen bg-blue-300'>
@@ -15,9 +17,9 @@ const Dashboard = () => {
                     {
                         isAdmin ?
                             <div>
-                                <li className=' uppercase'><NavLink to='/dashboard/home'><FaHome /> Admin Home</NavLink></li>
-                                <li className=' uppercase'><NavLink to='/dashboard/home'><FaUtensils /> Add Items</NavLink></li>
-                                <li className=' uppercase'><NavLink to='/dashboard/home'><FaList /> Manage Items</NavLink></li>
+                                <li className=' uppercase'><NavLink to='/'><FaHome /> Admin Home</NavLink></li>
+                                <li className=' uppercase'><NavLink to='/'><FaUtensils /> Add Items</NavLink></li>
+                                <li className=' uppercase'><NavLink to='/'><FaList /> Manage Items</NavLink></li>
                                 <li className=' uppercase'><NavLink to='/dashboard/home'><FaBook /> Manage Bookings</NavLink></li>
                                 <li className=' uppercase'><NavLink to='/dashboard/allUsers'><FaUser /> All Users</NavLink></li>
 

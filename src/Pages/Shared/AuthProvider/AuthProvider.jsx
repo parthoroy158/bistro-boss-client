@@ -47,15 +47,17 @@ const AuthProvider = ({ children }) => {
                 }
                 axiosPublic.post('/jwt', userInfo)
                     .then(res => {
-                        console.log(res.data.token)
+                        console.log(res.data)
                         if (res.data.token) {
-                            localStorage.setItem('Access Token', res.data.token)
+                            localStorage.setItem('Access-Token', res.data.token)
                         }
                     })
             }
             else {
-                localStorage.removeItem('Access Token')
+                localStorage.removeItem('Access-Token')
             }
+
+
             setLoading(false)
             console.log("This is the current user:", currentUser)
         })
