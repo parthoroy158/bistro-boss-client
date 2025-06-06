@@ -1,12 +1,43 @@
 import React from 'react';
 import useMenu from '../../Hooks/useMenu';
 import SectionTitle from '../../Components/SectionTitle.jsx/SectionTitle';
+import Swal from 'sweetalert2';
+import useAxiosSecure from '../../Hooks/useAxiosSecure';
 
 const ManageItem = () => {
-    const [menu] = useMenu()
+    const [menu,  ,refetch] = useMenu()
+    const axiosSecure = useAxiosSecure()
+
+    const handleDelete = (item) => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                console.log('This is the item:', item._id)
+                const res = await axiosSecure.delete(`/menu/${item._id}`)
+                if (res.data.deletedCount > 0) {
+                    Swal.fire({
+                        title: `${item.name} have been deleted`,
+                        text: "Your file has been deleted.",
+                        icon: "success"
+                    });
+                    refetch()
+                }
+
+
+            }
+        })
+    }
     return (
         <div>
             <SectionTitle subHeading='Hurry up' heading='Manage Items'></SectionTitle>
+            <p>{menu.length}</p>
             <div className="overflow-x-auto">
                 <table className="table w-full">
                     {/* head */}
@@ -43,7 +74,7 @@ const ManageItem = () => {
                                     <button className="btn btn-ghost btn-xs bg-green-800">Update/Edit</button>
                                 </th>
                                 <th>
-                                    <button className="btn btn-ghost btn-xs bg-red-600">Delete</button>
+                                    <button className="btn btn-ghost btn-xs bg-red-600" onClick={() => handleDelete(item)}>Delete</button>
                                 </th>
                             </tr>)
                         }
