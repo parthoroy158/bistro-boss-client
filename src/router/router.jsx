@@ -16,6 +16,7 @@ import UserHome from "../Pages/Dashboard/UserHome/UserHome";
 import AllUsers from "../layout/Dashboard/All Users/AllUsers";
 import AddItem from "../Pages/Add Item/AddItem";
 import AdminRoute from "./AdminRoute";
+import ManageItem from "../Pages/ManageItem/ManageItem";
 
 
 
@@ -70,7 +71,11 @@ const router = createBrowserRouter([
             },
             {
                 path: '/dashboard/addItems',
-                element: <AddItem></AddItem>
+                element: <AdminRoute><AddItem></AddItem></AdminRoute>
+            },
+            {
+                path: '/dashboard/manageItem',
+                element:<ManageItem></ManageItem>
             }
         ]
     }

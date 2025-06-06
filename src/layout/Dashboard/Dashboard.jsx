@@ -18,8 +18,8 @@ const Dashboard = () => {
                         isAdmin ?
                             <div>
                                 <li className=' uppercase'><NavLink to='/'><FaHome /> Admin Home</NavLink></li>
-                                <li className=' uppercase'><NavLink to='/'><FaUtensils /> Add Items</NavLink></li>
-                                <li className=' uppercase'><NavLink to='/'><FaList /> Manage Items</NavLink></li>
+                                <li className=' uppercase'><NavLink to='/dashboard/addItems'><FaUtensils /> Add Items</NavLink></li>
+                                <li className=' uppercase'><NavLink to='/dashboard/manageItem'><FaList /> Manage Items</NavLink></li>
                                 <li className=' uppercase'><NavLink to='/dashboard/home'><FaBook /> Manage Bookings</NavLink></li>
                                 <li className=' uppercase'><NavLink to='/dashboard/allUsers'><FaUser /> All Users</NavLink></li>
 
