@@ -17,6 +17,9 @@ import AllUsers from "../layout/Dashboard/All Users/AllUsers";
 import AddItem from "../Pages/Add Item/AddItem";
 import AdminRoute from "./AdminRoute";
 import ManageItem from "../Pages/ManageItem/ManageItem";
+import UpdateItem from "../layout/Dashboard/UpdateItem/UpdateItem";
+import Payment from "../Pages/Dashboard/Payment/Payment";
+import AdminHome from "../layout/Dashboard/AdminHome/AdminHome";
 
 
 
@@ -57,25 +60,38 @@ const router = createBrowserRouter([
         element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
         children: [
             {
-                path: '/dashboard/cart',
+                path: 'cart',
                 element: <Cart></Cart>
             },
             {
-                path: '/dashboard/home',
+                path: 'userHome',
                 element: <UserHome></UserHome>
             },
             // admin routs
             {
-                path: '/dashboard/allUsers',
+                path: 'allUsers',
                 element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
             },
             {
-                path: '/dashboard/addItems',
+                path: 'addItems',
                 element: <AdminRoute><AddItem></AddItem></AdminRoute>
             },
             {
-                path: '/dashboard/manageItem',
-                element:<ManageItem></ManageItem>
+                path: 'manageItem',
+                element: <ManageItem></ManageItem>
+            },
+            {
+                path: 'updateItem/:id',
+                element: <AdminRoute> <UpdateItem></UpdateItem></AdminRoute>,
+                loader: ({ params }) => fetch(`https://bistro-boss-server-orcin-two.vercel.app/menu/${params.id}`)
+            },
+            {
+                path: 'payment',
+                element: <Payment></Payment>
+            },
+            {
+                path: 'adminHome',
+                element: <AdminRoute><AdminHome></AdminHome></AdminRoute>
             }
         ]
     }

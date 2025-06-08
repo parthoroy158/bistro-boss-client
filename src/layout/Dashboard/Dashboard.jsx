@@ -17,7 +17,7 @@ const Dashboard = () => {
                     {
                         isAdmin ?
                             <div>
-                                <li className=' uppercase'><NavLink to='/'><FaHome /> Admin Home</NavLink></li>
+                                <li className=' uppercase'><NavLink to='/dashboard/adminHome'><FaHome /> Admin Home</NavLink></li>
                                 <li className=' uppercase'><NavLink to='/dashboard/addItems'><FaUtensils /> Add Items</NavLink></li>
                                 <li className=' uppercase'><NavLink to='/dashboard/manageItem'><FaList /> Manage Items</NavLink></li>
                                 <li className=' uppercase'><NavLink to='/dashboard/home'><FaBook /> Manage Bookings</NavLink></li>
@@ -26,7 +26,7 @@ const Dashboard = () => {
                             </div>
                             :
                             <div>
-                                <li className=' uppercase'><NavLink to='/dashboard/home'><FaHome /> User Home</NavLink></li>
+                                <li className=' uppercase'><NavLink to='/dashboard/userHome'><FaHome /> User Home</NavLink></li>
                                 <li className=' uppercase'><NavLink to='/dashboard/cart'><FaShoppingCart />My Cary ({cart.length})</NavLink></li>
                                 <li className=' uppercase'><NavLink to='/dashboard/reservation'><FaCalendar />Reservation</NavLink></li>
                                 <li className=' uppercase'><NavLink to='/dashboard/addReview'><FaStar />Add Review</NavLink></li>
